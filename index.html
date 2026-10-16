@@ -1,0 +1,637 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kate Rocaberte | Personal Portfolio</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #FFF4E8;
+            color: #333;
+            margin: 0;
+            line-height: 1.7;
+            transition: 0.3s;
+        }
+
+        /* HEADER */
+        header {
+            background: #800000;
+            color: white;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        header h2 {
+            margin: 0;
+            font-size: 23px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #FFDCC2;
+        }
+
+        button {
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 14px;
+        }
+
+        #themeButton {
+            background: #FFF4E8;
+            color: #800000;
+            font-weight: bold;
+        }
+
+        /* INTRODUCTION */
+        .introduction {
+            padding: 75px 10%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 45px;
+        }
+
+        .introduction-text {
+            max-width: 650px;
+        }
+
+        .welcome {
+            color: #800000;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .introduction h1 {
+            color: #800000;
+            font-size: 44px;
+            line-height: 1.2;
+            margin: 10px 0;
+        }
+
+        .introduction h3 {
+            font-size: 19px;
+            font-weight: normal;
+        }
+
+        .introduction img {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid #800000;
+            outline: 3px solid #D8B9A6;
+            outline-offset: 5px;
+        }
+
+        .introduction img:hover {
+            transform: scale(1.04);
+        }
+
+        /* BUTTONS */
+        .button {
+            display: inline-block;
+            background: #800000;
+            color: white;
+            padding: 11px 22px;
+            text-decoration: none;
+            margin-top: 15px;
+            border-radius: 5px;
+        }
+
+        .button:hover {
+            background: #5C0000;
+            transform: translateY(-3px);
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 55px 10%;
+            scroll-margin-top: 20px;
+        }
+
+        section h2 {
+            color: #800000;
+            font-size: 29px;
+            margin-bottom: 25px;
+        }
+
+        section h2::after {
+            content: "";
+            display: block;
+            width: 55px;
+            height: 4px;
+            background: #B76E5D;
+            margin-top: 7px;
+            border-radius: 2px;
+        }
+
+        section p {
+            max-width: 900px;
+        }
+
+        .section-intro {
+            max-width: 750px;
+        }
+
+        .about, .skills {
+            background: white;
+        }
+
+        /* SKILLS AND PROJECTS */
+        .project {
+            padding: 22px 0;
+            border-bottom: 1px solid #D8B9A6;
+        }
+
+        .project:last-child {
+            border-bottom: none;
+        }
+
+        .project h3 {
+            color: #800000;
+            margin-bottom: 5px;
+        }
+
+        .project h3:hover {
+            color: #B76E5D;
+        }
+
+        .project p {
+            margin-top: 5px;
+        }
+
+        .project-image {
+            width: 100%;
+            max-width: 500px;
+            height: 270px;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            margin-bottom: 20px;
+            border: 2px solid #D8B9A6;
+            padding: 4px;
+            background: white;
+        }
+
+        .project-image:hover {
+            border-color: #800000;
+        }
+
+        /* HOBBIES AND CONTACT */
+        ul {
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        li::marker {
+            color: #800000;
+        }
+
+        .contact a {
+            color: #800000;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .contact a:hover {
+            text-decoration: underline;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #800000;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* BACK TO TOP */
+        #backToTop {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #800000;
+            color: white;
+            display: none;
+        }
+
+        #backToTop:hover {
+            background: #5C0000;
+        }
+
+        /* DARK MODE */
+        body.dark-mode {
+            background: #242020;
+            color: #F5E8DF;
+        }
+
+        body.dark-mode header,
+        body.dark-mode footer {
+            background: #3D0000;
+        }
+
+        body.dark-mode .introduction h1,
+        body.dark-mode .welcome,
+        body.dark-mode section h2,
+        body.dark-mode .project h3,
+        body.dark-mode .contact a {
+            color: #E6AFA0;
+        }
+
+        body.dark-mode .about,
+        body.dark-mode .skills,
+        body.dark-mode .project-image {
+            background: #302929;
+        }
+
+        body.dark-mode .project {
+            border-color: #604747;
+        }
+
+        body.dark-mode .project h3:hover {
+            color: #FFDCC2;
+        }
+
+        body.dark-mode .button,
+        body.dark-mode #backToTop {
+            background: #A52A2A;
+        }
+
+        body.dark-mode .button:hover,
+        body.dark-mode #backToTop:hover {
+            background: #7D1F1F;
+        }
+
+        body.dark-mode #themeButton {
+            background: #FFF4E8;
+            color: #800000;
+        }
+
+        body.dark-mode section h2::after,
+        body.dark-mode li::marker {
+            background: #E6AFA0;
+            color: #E6AFA0;
+        }
+
+        body.dark-mode .introduction img {
+            border-color: #E6AFA0;
+            outline-color: #604747;
+        }
+
+        body.dark-mode .project-image {
+            border-color: #604747;
+        }
+
+        body.dark-mode .project-image:hover {
+            border-color: #E6AFA0;
+        }
+
+        /* MOBILE */
+        @media screen and (max-width: 768px) {
+            header, .introduction {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            header {
+                gap: 15px;
+            }
+
+            nav {
+                justify-content: center;
+                gap: 12px;
+            }
+
+            .introduction {
+                flex-direction: column-reverse;
+                padding: 50px 7%;
+            }
+
+            .introduction h1 {
+                font-size: 36px;
+            }
+
+            .introduction h3 {
+                font-size: 18px;
+            }
+
+            .introduction img {
+                width: 200px;
+                height: 200px;
+            }
+
+            section {
+                padding: 40px 7%;
+            }
+
+            section h2 {
+                font-size: 26px;
+            }
+
+            .project-image {
+                height: 220px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h2>Kate Rocaberte | Portfolio</h2>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About Me</a>
+            <a href="#skills">Skills</a>
+            <a href="#hobbies">Hobbies</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+            <button id="themeButton" onclick="changeTheme()">Dark Mode</button>
+        </nav>
+    </header>
+
+    <div class="introduction" id="home">
+        <div class="introduction-text">
+            <p class="welcome">WELCOME TO MY PERSONAL PORTFOLIO</p>
+            <h1>Hi, I'm Kate Rocaberte.</h1>
+            <h3>Working Student | ACT Student | Aspiring IT Professional</h3>
+
+            <p>
+                I am a 19-year-old working student currently employed
+                as a Kitchen Staff member at Shakey's Ever Gotesco
+                while pursuing my studies at Datamex College of Saint
+                Adeline. I am passionate about learning new skills,
+                exploring technology, and building a better future
+                for myself and my family.
+            </p>
+
+            <a href="#about" class="button">Learn More About Me</a>
+        </div>
+
+        <img src="profile.png" alt="Kate Rocaberte's Profile Picture">
+    </div>
+
+    <section class="about" id="about">
+        <h2>About Me</h2>
+
+        <p>
+            Hi! My name is Kate Rocaberte, and I am 19 years old.
+            I am the eldest of three siblings, which has taught me
+            to be responsible, independent, and understanding.
+            As the eldest, I always try my best to become a good
+            example to my younger siblings and help my family
+            whenever I can.
+        </p>
+
+        <p>
+            I am currently working as a Kitchen Staff member at
+            Shakey's, Ever Gotesco, while pursuing my studies at
+            Datamex College of Saint Adeline, taking up Associate
+            in Computer Technology (ACT). Balancing work and school
+            is not always easy, but I continue to do my best because
+            I want to achieve my dreams and build a better future
+            for myself and my family.
+        </p>
+
+        <p>
+            Through my work experience, I have learned the importance
+            of teamwork, time management, patience, discipline, and
+            communication. Working while studying has taught me how
+            to manage my time wisely, handle responsibilities, and
+            stay focused even when things become challenging.
+        </p>
+
+        <p>
+            As an Information Technology student, I am interested
+            in learning more about technology, programming, web
+            development, and designing websites. I want to improve
+            my skills in HTML, CSS, problem-solving, and other areas
+            of IT that will help me grow personally and professionally.
+        </p>
+
+        <p>
+            During my free time, I enjoy exploring new things,
+            learning new skills, spending time with my loved ones,
+            and improving myself. I believe that every experience,
+            whether good or bad, teaches us valuable lessons that
+            help us become stronger and wiser.
+        </p>
+
+        <p>
+            My goal is to graduate, develop my skills, find better
+            opportunities, and give my family a comfortable life.
+            I know that success takes time, hard work, and dedication,
+            so I am willing to keep learning and improving myself
+            along the way.
+        </p>
+
+        <p>
+            I believe that being successful is not about how quickly
+            you achieve your dreams, but about how determined you
+            are to keep going despite the challenges. I am proud
+            of how far I have come, and I will continue working
+            hard to become the best version of myself.
+        </p>
+    </section>
+
+    <section class="skills" id="skills">
+        <h2>My Skills</h2>
+
+        <div class="project">
+            <h3>01. HTML and CSS</h3>
+            <p>Basic knowledge of creating and designing websites using HTML and CSS.</p>
+        </div>
+
+        <div class="project">
+            <h3>02. Computer Skills</h3>
+            <p>Ability to use computers and learn different software and digital tools.</p>
+        </div>
+
+        <div class="project">
+            <h3>03. Teamwork</h3>
+            <p>Ability to cooperate with classmates and coworkers to achieve common goals.</p>
+        </div>
+
+        <div class="project">
+            <h3>04. Communication Skills</h3>
+            <p>Ability to communicate clearly with customers, classmates, and coworkers.</p>
+        </div>
+
+        <div class="project">
+            <h3>05. Time Management</h3>
+            <p>Ability to balance work responsibilities and school activities efficiently.</p>
+        </div>
+    </section>
+
+    <section class="about" id="hobbies">
+        <h2>Hobbies and Interests</h2>
+
+        <p>
+            My hobbies include going on rides, exploring different
+            places, and working. I enjoy going on rides because
+            they help me relax, clear my mind, and take a break
+            from my busy routine. I also enjoy working because
+            it allows me to gain experience, learn new things,
+            and become more independent.
+        </p>
+
+        <p>
+            When it comes to my interests, I am interested in many
+            things, especially the challenges that life brings.
+            I believe that every challenge is an opportunity to
+            learn, grow, and become a stronger person. I am
+            interested in discovering new experiences, overcoming
+            difficulties, and learning valuable lessons from the
+            people and situations around me.
+        </p>
+
+        <p>
+            I enjoy challenging myself because I believe that life
+            is not always easy, but every struggle has something
+            to teach us. These experiences motivate me to keep
+            moving forward, improve myself, and work harder to
+            achieve my dreams.
+        </p>
+    </section>
+
+    <section id="projects">
+        <h2>My Projects and Experience</h2>
+
+        <p class="section-intro">
+            These projects and experiences represent my skills,
+            learning journey, and personal development.
+        </p>
+
+        <div class="project">
+            <img src="project1.png" alt="Personal Portfolio Website" class="project-image">
+            <h3>01. Personal Portfolio Website</h3>
+            <p>
+                A personal website created using HTML and CSS to
+                showcase my personal information, skills, hobbies,
+                and interests as an Associate in Computer Technology student.
+            </p>
+            <p><strong>Technologies:</strong> HTML and CSS</p>
+        </div>
+
+        <div class="project">
+            <img src="project2.png" alt="Gown Rental Management System" class="project-image">
+            <h3>02. Gown Rental Management System</h3>
+            <p>
+                A school project designed to manage gown rentals,
+                customer information, rental transactions, deposits,
+                and additional charges for late returns or damaged
+                gowns. The system aims to organize rental records
+                and make transactions easier to monitor.
+            </p>
+            <p><strong>Technologies:</strong> Microsoft Visual Studio 2010</p>
+        </div>
+
+        <div class="project">
+            <img src="project3.png" alt="Shakey's Kitchen Staff Work Experience" class="project-image">
+            <h3>03. Kitchen Staff Work Experience</h3>
+            <p>
+                My work experience as a Kitchen Staff member at
+                Shakey's Ever Gotesco, where I apply teamwork,
+                time management, communication, and attention to
+                detail while helping maintain kitchen cleanliness
+                and supporting daily operations.
+            </p>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2>Contact Me</h2>
+
+        <p>
+            Thank you for visiting my portfolio. Feel free to
+            connect with me to learn more about my work,
+            projects, and interests.
+        </p>
+
+        <p>
+            <strong>Email:</strong>
+            <a href="mailto:your-email@example.com">your-email@example.com</a>
+        </p>
+
+        <p>
+            <strong>Facebook:</strong>
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
+                Visit Facebook
+            </a>
+        </p>
+
+        <p>
+            <strong>GitHub:</strong>
+            <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
+                Visit GitHub
+            </a>
+        </p>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Kate Rocaberte. All Rights Reserved.</p>
+    </footer>
+
+    <button id="backToTop" onclick="goToTop()">Back to Top</button>
+
+    <script>
+        function changeTheme() {
+            document.body.classList.toggle("dark-mode");
+
+            var button = document.getElementById("themeButton");
+
+            button.textContent =
+                document.body.classList.contains("dark-mode")
+                ? "Light Mode"
+                : "Dark Mode";
+        }
+
+        window.onscroll = function() {
+            document.getElementById("backToTop").style.display =
+                document.documentElement.scrollTop > 300
+                ? "block"
+                : "none";
+        };
+
+        function goToTop() {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+    </script>
+
+</body>
+</html>
+```
